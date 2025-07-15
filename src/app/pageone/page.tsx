@@ -1,9 +1,9 @@
 'use client';
-import Navigation from "./component/ui/Navigation";
+import Navigation from "../component/ui/Navigation";
 import React, {useState} from "react";
-import Detail from "./component/ui/Detail";
-import PlaceCard from "./component/ui/PlaceCard";
-
+import Detail from "../component/ui/Detail";
+import PlaceCard from "../component/ui/PlaceCard";
+import Filtre  from "../component/ui/filtre";
 
 const places = [
   {
@@ -69,10 +69,12 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      <div className="grid min-h-screen grid-cols-1 lg:grid-cols-[1fr_400px] gap-8 p-4">
+      <div className="grid min-h-screen grid-cols-1 lg:grid-cols-[250px_1fr_400px] gap-8 p-4">
+        <Filtre/>
         {/* Colonne principale : cartes */}
+        
         <div className={`${selectedPlace ? "" : "col-span-2"} p-4`}>
-          <div className={`grid grid-cols-1 sm:grid-cols-2 ${selectedPlace ? "lg:grid-cols-3" : "lg:grid-cols-4"} gap-6`}>
+          <div className={`grid grid-cols-1 sm:grid-cols-2 ${selectedPlace ? "lg:grid-cols-2" : "lg:grid-cols-3"} gap-6`}>
             {places.map((place, idx) => (
               <PlaceCard key={idx} place={place} onClick={() => setSelectedPlace(place)} />
             ))}
@@ -82,6 +84,7 @@ export default function Home() {
         {selectedPlace && (
           <Detail place={selectedPlace} />
         )}
+        
       </div>
     </>
   );

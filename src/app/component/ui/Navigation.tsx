@@ -7,6 +7,8 @@ import { User } from "lucide-react";
 import { Search } from "lucide-react";
 
 
+
+
 export default function Navigation() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const pathname = usePathname();
@@ -25,8 +27,8 @@ export default function Navigation() {
     
 
     return (
-        <header className="w-full bg-white shadow-md">
-            <nav className="container flex justify-between p-4">
+        <header className="w-full bg-white shadow-md mb-20px "> 
+            <nav className="w-full flex justify-between p-4">
                 <div className="text-xl">
                     <span className="font-pacifico text-black">Brad</span>
                     <span className="font-fredoka text-pink-400 ">Places</span>
@@ -50,8 +52,6 @@ export default function Navigation() {
                 </div>
                 <div className="flex items-center bg-gray-50 rounded-full border border-gray-200 px-2 py-1 w-full max-w-xs mx-auto">
                     <Search className="w-5 h-5 text-gray-500" />
-
-
                     <input type="text" placeholder="search" className="bg-transparent outline-none px-4 py-2 w-full rounded-full" />
                 </div>
                 <div className="flex items-center bg-gray-50 rounded-full p-1 w-fit mx-auto border border-gray-200">
@@ -72,7 +72,6 @@ export default function Navigation() {
                         <Link href="/Up comming" className="hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>Up Comming</Link>
                         <Link href="/Favorites" className="hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>Favorites</Link>
                         <Link href="/Favorites" className="hover:text-blue-600" onClick={() => setIsMobileMenuOpen(false)}>Favorites</Link>
-
                     </div>
                 </div>
             )}
