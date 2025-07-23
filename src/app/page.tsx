@@ -1,88 +1,89 @@
 'use client';
 import Navigation from "./component/ui/Navigation";
 import React, {useState} from "react";
-import Detail from "./component/ui/Detail";
-import PlaceCard from "./component/ui/PlaceCard";
+import Reservation from "./component/ui/Reservation";
+import { Search  } from "lucide-react";
+import Image from "next/image";
 
 
-const places = [
-  {
-    name: "Venus Space",
-    address: "Pleiades Lane, Events District, Cape Town",
-    image: "/Projet de Places/4dc750b7-61c9-483c-9caa-e293fe476b0c.jpeg",
-    price: "450 000 XOF",
-    rating: "4,5",
-  },
-  {
-    name: "Elegant Agora",
-    address: "Andromeda Avenue, Space Colony, Mars",
-    image: "/Projet de Places/5d2a4c0a-f050-4e35-9c23-8593581a679f.jpeg",
-    price: "1 550 000 XOF",
-    rating: "4,5",
-  },
-  {
-    name: "Lumina Theater",
-    address: "Galileo Street, Jupiter City, Jupiter",
-    image: "/Projet de Places/93ab785c-3988-4376-8f81-0bb0d4f24577.jpeg",
-    price: "600 000 XOF",
-    rating: "4,8",
-  },
-  {
-    name: "Harry Symphony",
-    address: "Ringside Road, Saturn Resort, Saturn",
-    image: "/Projet de Places/004634d3-b3db-4703-9594-3288589d4b1b.jpeg",
-    price: "500 000 XOF",
-    rating: "4,6",
-  },
-  {
-    name: "Harmonia Amphitheater",
-    address: "Oceanic Drive, Neptune Bay, Neptune",
-    image: "/Projet de Places/7753f90b-8366-4044-b09b-adb5437862e5.jpeg",
-    price: "400 000 XOF",
-    rating: "4,3",
-  },
-  {
-    name: "Odyssey Hall",
-    address: "Frozen Path, Pluto Village, Pluto",
-    image: "/Projet de Places/9130ef63-f177-4e0c-a2f0-99c291a455ff.jpeg",
-    price: "2 000 000 XOF",
-    rating: "4,1",
-  },
-  {
-    name: "Earthly Paradise",
-    address: "Terra Lane, Earth City, Earth",
-    image: "/Projet de Places/90538332-623d-4d09-a315-2be4a914632b.jpeg",
-    price: "550 000 XOF",
-    rating: "4,7",
-  },
-  { 
-    name: "Lunar Lodge",
-    address: "Moonlight Avenue, Lunar Colony, Moon",
-    image: "/Projet de Places/ATI Architects Offices - Dubai _ Office Snapshots.jpeg",  
-    price: "300 000 XOF",
-    rating: "4,2",
-  },
-];
 export default function Home() {
-  const [selectedPlace, setSelectedPlace] = useState(null);
-
+  const [activeTab, setActiveTab] = useState(0);
+  
   return (
     <>
       <Navigation />
-      <div className="grid min-h-screen grid-cols-1 lg:grid-cols-[1fr_400px] gap-8 p-4">
-        {/* Colonne principale : cartes */}
-        <div className={`${selectedPlace ? "" : "col-span-2"} p-4`}>
-          <div className={`grid grid-cols-1 sm:grid-cols-2 ${selectedPlace ? "lg:grid-cols-3" : "lg:grid-cols-4"} gap-6`}>
-            {places.map((place, idx) => (
-              <PlaceCard key={idx} place={place} onClick={() => setSelectedPlace(place)} />
-            ))}
-          </div>
+      <div className="flex  w-screen h-[606px] bg-gray-100">
+        <img src="/Projet de Places/blue-arm-chairs-cinema 1.png" alt="Background" fill className="object-cover" /> 
+        <div className="absolute inset-0  w-full h-full flex flex-col items-center justify-center px-4">
+          <h1 className="text-[56px] font-bold text-white">Trouvez l’espace idéal. Réservez en quelques clics. </h1> 
+              <div className="flex flex-col items-left gap-0 bg-gray-100 rounded-xl px-4 py-2   z-1 w-full relative">
+              <Reservation activeTab={activeTab} setActiveTab={setActiveTab}/>
+              {activeTab === 0 && (
+                
+                <div className="flex w-full justify-between gap-2">
+                  <div className="flex flex-col items-left">
+                  <span className="text-[#3A4C69] text-[14px] font-semibold">Où?</span>
+                  <input type="text"  className="bg-gray-200 w-[270px] p-2 m-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e35d4d] " />
+                  </div>
+                  <div className="flex flex-col items-left">
+                  <span className="text-[#3A4C69] text-[14px] font-semibold">Quelle date?</span>
+                  <input type="text"  className="bg-gray-200 w-[270px] p-2 m-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e35d4d] " />
+                  </div>
+                  <div className="flex flex-col items-left">
+                  <span className="text-[#3A4C69] text-[14px] font-semibold">Nombre de place</span>
+                  <input type="text"  className="bg-gray-200 w-[270px] p-2 m-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e35d4d] " />
+                  </div>
+                  <div className="bg-[#e35d4d] text-white px-4 py-2 rounded-full mt-2 hover:bg-[#c34a3f] transition-colors">
+                    <search className="h-5 w-5 "/>
+                    <button>
+                       Rechercher
+                    </button>
+                  </div>
+                </div>
+
+              )}
+              {activeTab === 1 && (
+                <div className="flex items-left gap-2">
+                  <div className="flex flex-col items-left">
+                  <span className="text-[#3A4C69] text-[14px] font-semibold">Où?</span>
+                  <input type="text"  className="bg-gray-200 w-[270px] p-2 m-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e35d4d] " />
+                  </div>
+                  <div className="flex flex-col items-left">
+                  <span className="text-[#3A4C69] text-[14px] font-semibold">Quelle date?</span>
+                  <input type="text"  className="bg-gray-200 w-[270px] p-2 m-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e35d4d] " />
+                  </div>
+                  <div className="flex flex-col items-left">
+                  <span className="text-[#3A4C69] text-[14px] font-semibold">Nombre de place</span>
+                  <input type="text"  className="bg-gray-200 w-[270px] p-2 m-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e35d4d] " />
+                  </div>
+                </div>
+              )}{activeTab === 2 && (
+                <div className="flex items-left gap-2">
+                  <div className="flex flex-col items-left">
+                  <span className="text-[#3A4C69] text-[14px] font-semibold">Où?</span>
+                  <input type="text"  className="bg-gray-200 w-[270px] p-2 m-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e35d4d] " />
+                  </div>
+                  <div className="flex flex-col items-left">
+                  <span className="text-[#3A4C69] text-[14px] font-semibold">Quelle date?</span>
+                  <input type="text"  className="bg-gray-200 w-[270px] p-2 m-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e35d4d] " />
+                  </div>
+                  <div className="flex flex-col items-left">
+                  <span className="text-[#3A4C69] text-[14px] font-semibold">Nombre de place</span>
+                  <input type="text"  className="bg-gray-200 w-[270px] p-2 m-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e35d4d] " />
+                  </div>
+                </div>
+              )}
+              </div>
+             
         </div>
-        {/* Colonne de droite : détail */}
-        {selectedPlace && (
-          <Detail place={selectedPlace} />
-        )}
+        
       </div>
+       <div>
+                <span>
+                  <h2 className="text-[40px]">Nos espaces les plus réservés</h2>
+                  <p className="text-[19px]">Les lieux préférés de nos clients pour leurs réunions, conférences et événements spéciaux.</p>
+                </span>
+              </div>
     </>
   );
 }

@@ -9,12 +9,13 @@ import { Search } from "lucide-react";
 
 
 
+
 export default function Navigation() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const pathname = usePathname();
 
     const navLinks = [
-        { href: "/pageone", label: "Rent" },
+        { href: "/search", label: "Rent" },
         { href: "/pagetwo", label: "Up Comming" },
         { href: "/pagethree", label: "Favorites" },
         { href: "/pagefour", label: "Favorites" },
@@ -56,7 +57,10 @@ export default function Navigation() {
                 </div>
                 <div className="flex items-center bg-gray-50 rounded-full p-1 w-fit mx-auto border border-gray-200">
                     <User className="w-6 h-6 text-gray-700" />
-                    <span className="ml-2 font-bold">Se connecter</span>
+                    <button type="button" className="ml-2 font-bold">
+                        <Link href={"/Inscription"} >Se connecter </Link>
+                    </button>
+                    
                 </div>
                     
                 <button

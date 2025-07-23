@@ -21,7 +21,7 @@ export default function Filtre() {
   const [startDate, setStartDate] = useState(new Date());
 
   return (
-    <nav className="top-0 right-0 bg-white lg:w-[250px] h-full p-6 m-4 shadow-md">
+    <nav className="top-0 right-0 bg-white lg:w-[250px] h-full p-4 m-2 shadow-md">
       <div>
         <div className="flex justify-between">
           <span className="font-semibold text-[15px]">Filter</span>
@@ -39,19 +39,19 @@ export default function Filtre() {
           />
         </div>
         <div className="border-t border-gray-300 my-2"></div>
-             <FilterBlock
+            <FilterBlock
                 icon={<MapPinIcon className="w-5 h-5 text-gray-400" />}
                 title="Location"
                 onClear={() => {/* reset location */}}
             />
-            <div className="flex flex-col gap-2 mb-4 ml-2">
+            <div className="flex flex-col text-gray-400 gap-2 mb-4 ml-2">
                 <label className="flex items-center gap-2">
                 <input type="checkbox"  className="accent-[#c41f45]" />
-                <span className="text-[14px]">Location 1</span>
+                <span className="text-[12px]">Location 1</span>
                 </label>
                 <label className="flex items-center gap-2">
                 <input type="checkbox"  className="accent-[#c41f45]" />
-                <span className="text-[14px] ">Location 2</span>
+                <span className="text-[12px] ">Location 2</span>
                 </label>
             </div>
       <div className="border-t border-gray-300 my-2"></div>
@@ -62,23 +62,23 @@ export default function Filtre() {
         title="Price Range"
         onClear={() => {/* reset price */}}
       />
-      <div className="flex flex-col gap-2 mb-4 ml-2">
-        <label className="flex items-center gap-2">
-          <input type="checkbox" className="accent-[#c41f45]" />
-          <span className="text-[14px] ">Moins de 25000 Fcfa</span>
-        </label>
-        <label className="flex items-center gap-2">
-          <input type="checkbox"  className="accent-[#c41f45]" />
-          <span className="text-[14px] ">25000 Fcfa - 550 000 Fcfa</span>
-        </label>
-        <label className="flex items-center gap-2">
-          <input type="checkbox"  className="accent-[#c41f45]" />
-          <span className="text-[14px] ">Plus de 1 000 000 Fcfa</span>
-        </label>
-        <label className="flex items-center gap-2">
-          <input type="checkbox" className="accent-[#c41f45]" />
-          <span className="text-[14px]">Custom</span>
-        </label>
+      <div className="flex flex-col text-gray-400 gap-2 mb-4 ml-2">
+            <label className="flex items-center gap-2">
+            <input type="checkbox" className="accent-[#c41f45]" />
+            <span className="text-[12px] ">Moins de 25000 Fcfa</span>
+            </label>
+            <label className="flex items-center gap-2">
+            <input type="checkbox"  className="accent-[#c41f45]" />
+            <span className="text-[12px] ">25000 Fcfa - 550 000 Fcfa</span>
+            </label>
+            <label className="flex items-center gap-2">
+            <input type="checkbox"  className="accent-[#c41f45]" />
+            <span className="text-[12px] ">Plus de 1 000 000 Fcfa</span>
+            </label>
+            <label className="flex items-center gap-2">
+            <input type="checkbox" className="accent-[#c41f45]" />
+            <span className="text-[12px]">Custom</span>
+            </label>
         {/* Slider */}
         <input
           type="range"
@@ -89,8 +89,23 @@ export default function Filtre() {
         />
       
             <div className="border-t border-gray-300 my-2"></div>
-
-            
+         <FilterBlock
+            icon={<MapPinIcon className="w-5 h-5 text-gray-400" />}
+            title="Place number"
+            onClear={() => {/* reset price */}}
+         />
+          <div className="flex gap-2 mt-2">
+                <div className="bg-white rounded-full font-semibold px-4 py-2 flex items-center gap-1">
+                    <span className="text-gray-400 text-[10px]">Min</span>
+                    <input type="nmuber" defaultValue={50} className="text-[14px] text-gray-900 font-semibold w-6 h-8 text-sm p-1"/>
+                    <span className="text-gray-400 text-[10px]">Plcs</span>
+                </div>
+                <div className="bg-white rounded-full font-semibold px-4 py-2 flex items-center gap-1">
+                    <span className="text-gray-400 text-[10px]">Max</span>
+                    <input type="nmuber" defaultValue={500} className="text-[14px] text-gray-900 font-semibold w-6 h-8 text-sm p-1" />
+                    <span className="text-gray-400 text-[10px]">Plcs</span>
+                </div>
+            </div>
         </div>
       </div>
     </nav>
